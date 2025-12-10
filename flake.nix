@@ -25,4 +25,11 @@
             };
         };
     };
+    # NEW: NixOS system configs
+    nixosConfigurations = {
+        nixtest = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./nixtest.nix ];
+        };
+    };
 }
