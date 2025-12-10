@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+    imports = [
+    "TestNixOShardware.nix"
+    ];
   # We'll add hardware-configuration.nix import later
   
   # Boot
