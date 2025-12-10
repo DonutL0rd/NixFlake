@@ -1,0 +1,6 @@
+    {pkgs, ...}: {
+    home.username = "benjamincurrie";
+    home.homeDirectory = "/Users/benjamincurrie";    
+    home.stateVersion = "24.11"; # Comment out for error with "latest" version
+    programs.home-manager.enable = true;
+    }

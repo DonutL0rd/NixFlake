@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-    home.username = "benjamincurrie";
-    home.homeDirectory = "/Users/benjamincurrie";    
-    home.stateVersion = "24.11"; # Comment out for error with "latest" version
-    programs.home-manager.enable = true;
        # Add this somewhere in `home.nix`
     home.packages = [
         pkgs.nixfmt-rfc-style
@@ -12,7 +8,7 @@
 
     programs.starship = {
         enable = true;
-        enableZshIntegration = true;~
+        enableZshIntegration = true;
     };
     programs.zsh = {
         enable = true;

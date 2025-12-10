@@ -15,7 +15,13 @@
                 # System is very important!
                 pkgs = import nixpkgs { system = "aarch64-darwin"; };
 
-                modules = [ ./home.nix ]; # Defined later
+                modules = [ ./home.nix ./benjamincurrie.nix]; # Defined later
+            };
+            "nrm" = home-manager.lib.homeManagerConfiguration {
+                # System is very important!
+                pkgs = import nixpkgs { system = "x86_64-linux"; };
+
+                modules = [ ./home.nix ./nrm.nix]; # Defined later
             };
         };
     };
