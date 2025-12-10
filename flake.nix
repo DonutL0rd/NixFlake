@@ -9,7 +9,7 @@
         };
     };
 
-    outputs = {nixpkgs, home-manager, ...}: {
+    outputs = {self, nixpkgs, home-manager, ...}: {
         homeConfigurations = {
             "benjamincurrie" = home-manager.lib.homeManagerConfiguration {
                 # System is very important!
