@@ -1,4 +1,4 @@
-    {pkgs, ...}: {
+   {pkgs, ...}: {
     home.username = "nrm";
     home.homeDirectory = "/home/nrm";    
     home.stateVersion = "24.11"; # Comment out for error with "latest" version
