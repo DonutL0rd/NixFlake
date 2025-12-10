@@ -5,8 +5,8 @@
         pkgs.cowsay
         pkgs.starship
         pkgs.github-cli
-	pkgs.helix
-	pkgs.btop
+	      pkgs.helix
+	      pkgs.btop
     ];
 
     programs.starship = {
