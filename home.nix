@@ -4,11 +4,13 @@
         pkgs.nixfmt-rfc-style
         pkgs.cowsay
         pkgs.starship
+        pkgs.github-cli
     ];
 
     programs.starship = {
         enable = true;
         enableZshIntegration = true;
+        enableBashIntegration = true;
     };
     programs.zsh = {
         enable = true;
