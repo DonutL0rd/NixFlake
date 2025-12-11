@@ -9,7 +9,7 @@
 	      pkgs.btop
 	      pkgs.gemini-cli
     ];
-
+    
     programs.starship = {
         enable = true;
         enableZshIntegration = true;
@@ -134,4 +134,10 @@
       enable = true;
       enableZshIntegration = true;
   };
+    programs.vim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+    };
 } 
