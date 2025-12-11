@@ -7,6 +7,7 @@
         pkgs.github-cli
 	      pkgs.helix
 	      pkgs.btop
+	      pkgs.gemini-cli
     ];
 
     programs.starship = {
@@ -129,4 +130,8 @@
       docker_context.symbol = "";
     };
     };
+    programs.yazi = {
+      enable = true;
+      enableZshIntegration = true;
+  };
 } 
