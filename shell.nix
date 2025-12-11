@@ -3,9 +3,11 @@
     home.packages = [
         pkgs.nixfmt-rfc-style
         pkgs.cowsay
+        pkgs.lazydocker
+        pkgs.ctop
         pkgs.starship
         pkgs.github-cli
-	      pkgs.helix
+        pkgs.helix
 	      pkgs.btop
 	      pkgs.gemini-cli
     ];
