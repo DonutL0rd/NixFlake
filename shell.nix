@@ -3,14 +3,12 @@
     home.packages = [
         pkgs.nixfmt-rfc-style
         pkgs.cowsay
-        pkgs.lazydocker
-        pkgs.ctop
         pkgs.starship
         pkgs.github-cli
         pkgs.helix
-	      pkgs.btop
-              pkgs.gemini-cli
-        pkgs.gping
+        pkgs.btop
+        pkgs.gemini-cli
+        pkgs.tailscale
     ];
     
     programs.starship = {
@@ -136,9 +134,18 @@
     programs.yazi = {
       enable = true;
       enableZshIntegration = true;
-  };
-    programs.vim = {
+    };
+    programs.neovim = {
       enable = true;
       defaultEditor = true;
+      vimAlias = true;
+      viAlias = true;
+      plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+      plenary-nvim
+      gruvbox-material
+      mini-nvim
+    ]; 
     };
 } 
