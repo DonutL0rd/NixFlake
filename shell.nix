@@ -5,10 +5,10 @@
         pkgs.cowsay
         pkgs.starship
         pkgs.github-cli
-        pkgs.helix
         pkgs.btop
         pkgs.gemini-cli
         pkgs.tailscale
+        pkgs.gping 
     ];
     
     programs.starship = {
