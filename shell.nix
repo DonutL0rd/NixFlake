@@ -9,7 +9,8 @@
         pkgs.github-cli
         pkgs.helix
 	      pkgs.btop
-	      pkgs.gemini-cli
+              pkgs.gemini-cli
+        pkgs.gping
     ];
     
     programs.starship = {
