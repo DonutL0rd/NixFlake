@@ -7,6 +7,9 @@
     programs.bash = {
         enable = true;
         enableCompletion = true;
+        initExtra = ''
+          neofetch 
+          ''; 
         shellAliases = {
             ll = "ls -la";
             hmswitch = "home-manager switch --flake ~/src/nix#nrm";
