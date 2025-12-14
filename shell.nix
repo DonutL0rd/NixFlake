@@ -13,7 +13,7 @@
     pkgs.tailscale
     pkgs.gping
     pkgs.neofetch
+    pkgs.zellij
+    pkgs.yazi
   ];
-  
-
 }
