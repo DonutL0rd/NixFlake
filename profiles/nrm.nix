@@ -3,7 +3,7 @@
     home.homeDirectory = "/home/nrm";    
     home.stateVersion = "24.11"; # Comment out for error with "latest" version
     programs.home-manager.enable = true;
-    
+    home.packages = [ pkgs.docker ]; 
     programs.bash = {
         enable = true;
         enableCompletion = true;
