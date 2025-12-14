@@ -12,6 +12,7 @@
           '';
         shellAliases = {
             ll = "ls -la";
+            z = "zellij attach main";
             hmswitch = "home-manager switch --flake ~/src/nix#benjamincurrie";
         }; 
     };
