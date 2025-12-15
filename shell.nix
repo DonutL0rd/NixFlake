@@ -15,5 +15,8 @@
     pkgs.neofetch
     pkgs.zellij
     pkgs.yazi
+    pkgs.speedtest-cli
+    pkgs.eza
+    pkgs.bat
   ];
 }

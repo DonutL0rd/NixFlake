@@ -10,7 +10,8 @@
           neofetch 
           ''; 
         shellAliases = {
-            ll = "ls -la";
+            ls = "eza --icons -F -H --group-directories-first --git -1";
+            cat = "bat -pp";
             hmswitch = "home-manager switch --flake ~/src/nix#nrm";
         }; 
     };

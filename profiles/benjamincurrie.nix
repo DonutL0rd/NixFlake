@@ -11,7 +11,8 @@
           neofetch 
           '';
         shellAliases = {
-            ll = "ls -la";
+            cat = "bat -pp";
+            ls = "eza --icons -F -H --group-directories-first --git -1";
             z = "zellij attach main";
             obdir = "cd /Users/benjamincurrie/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Obsidian";
             hmswitch = "home-manager switch --flake ~/src/nix#benjamincurrie";
