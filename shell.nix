@@ -5,6 +5,7 @@
   ];
   home.packages = [
     pkgs.nixfmt-rfc-style
+    pkgs.cmatrix
     pkgs.cowsay
     pkgs.starship
     pkgs.github-cli
@@ -19,6 +20,5 @@
     pkgs.eza
     pkgs.bat
     pkgs.figlet
-    pkgs.genact
   ];
 }
