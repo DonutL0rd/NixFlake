@@ -18,5 +18,7 @@
     pkgs.speedtest-cli
     pkgs.eza
     pkgs.bat
+    pkgs.figlet
+    pkgs.genact
   ];
 }

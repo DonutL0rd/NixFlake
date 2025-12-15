@@ -9,6 +9,7 @@
         enableCompletion = true;
         initExtra = ''
           neofetch 
+          figlet -f doom "Hello sir."
           '';
         shellAliases = {
             cat = "bat -pp";
