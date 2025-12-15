@@ -297,7 +297,6 @@ home.file.".config/nvim/lua/config/options.lua".text = ''
       pattern = { "gitcommit", "markdown" },
       callback = function()
         vim.opt_local.wrap = true
-        vim.opt_local.spell = true
       end,
     })
     
