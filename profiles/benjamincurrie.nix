@@ -13,6 +13,7 @@
         shellAliases = {
             ll = "ls -la";
             z = "zellij attach main";
+            obdir = "cd /Users/benjamincurrie/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Obsidian";
             hmswitch = "home-manager switch --flake ~/src/nix#benjamincurrie";
         }; 
     };
