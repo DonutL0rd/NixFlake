@@ -7,6 +7,7 @@
         enable = true;
         enableCompletion = true;
         initExtra = ''
+          clear
           neofetch 
           ''; 
         shellAliases = {
