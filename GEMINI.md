@@ -30,7 +30,10 @@ The configuration is structured to be modular and portable across different syst
     - Defines several useful aliases, such as `hmswitch` to apply the configuration.
 
 ### Application Configurations
-- **`appConfigs/nvim.nix`**: Configures Neovim using LazyVim, with a comprehensive set of plugins, keymaps, and options for development.
+- **`appConfigs/nvim.nix`**: Configures Neovim using LazyVim.
+    - **Simplified Setup**: Removed unused language servers (Markdown, Cargo, Go, Python, GCC) and "extras" (Yanky, Trouble, Markdown) to reduce noise.
+    - **Visuals**: kept animations (`mini-animate`) and code outline (`aerial`).
+    - **UI**: Disabled `bufferline` (tabs) and `showtabline` for a focused, single-file editing experience.
 - **`appConfigs/starship.nix`**: Provides a detailed, custom [Starship](https://starship.rs/) prompt configuration with a `tokyonight` theme.
 
 ## Building and Running
