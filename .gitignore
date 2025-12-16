@@ -1,1 +1,18 @@
+# Nix build results (covers result, result-1, result-2, etc.)
 result
+result-*
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+# Editor temporary files (Vim/Neovim)
+*.swp
+*.swo
+*~
+# Secrets and local environment variables (Safety net)
+.env
+.envrc
+
+# Direnv (common with Nix projects)
+.direnv/esult
