@@ -1,99 +1,121 @@
+================================================================================
+NIX HOME MANAGER CONFIGURATION
+================================================================================
 
-# Nix Home Configuration
+Declarative user environment using Nix Flakes and Home Manager.
+Works on macOS (Apple Silicon) and Linux.
 
-This repository contains the declarative configuration for my user environment using Nix Flakes and Home Manager.
+================================================================================
+PREREQUISITES
+================================================================================
 
-## Prerequisites
+1. Install Nix with daemon mode:
 
-1.  **Install Nix:**
-    ```bash
-    sh <(curl -L [https://nixos.org/nix/install](https://nixos.org/nix/install)) --daemon
-    ```
+   sh <(curl -L <https://nixos.org/nix/install>) --daemon
 
-2.  **Enable Flakes:**
-    Ensure `~/.config/nix/nix.conf` or `/etc/nix/nix.conf` contains:
-    ```text
-    experimental-features = nix-command flakes
-    ```
+2. Enable flakes (required):
 
----
+   mkdir -p ~/.config/nix
+   echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
-## Installation (Bootstrap)
+3. Restart your terminal
 
-Follow these steps only when setting up this configuration on a new machine for the first time.
+================================================================================
+FIRST-TIME SETUP (NEW MACHINE)
+================================================================================
 
-### 1. Clone the Repository
-Clone this to your preferred source directory (e.g., `~/src/nix`):
+## Step 1: Clone this repo
 
-```bash
 mkdir -p ~/src
 git clone <YOUR_REPO_URL> ~/src/nix
 cd ~/src/nix
-````
 
-### 2. Back up Existing Shell Configs
+## Step 2: Backup existing dotfiles
 
-Home Manager will fail if it detects existing configuration files (like `.bashrc` or `.profile`) that it intends to manage. Move them to a backup location:
+Home Manager will fail if these files exist. Back them up:
 
-Bash
-
-```
-# Back up .bashrc if it exists
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.backup
-
-# Back up .profile if it exists (common on non-NixOS systems)
 [ -f ~/.profile ] && mv ~/.profile ~/.profile.backup
-```
+[ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.backup
 
-### 3. Build and Activate
+## Step 3: Build and activate
 
-Replace `<your-username>` with the actual username defined in `flake.nix`:
+Replace <username> with: benjamincurrie (macOS) or nrm (Linux)
 
-Bash
-
-```
-# Build the activation package
-nix build .#homeConfigurations."<your-username>".activationPackage
-
-# Activate the configuration
+nix build .#homeConfigurations."<username>".activationPackage
 ./result/activate
-```
 
----
+## Step 4: Restart shell
 
-## Usage
+exec $SHELL
 
-### Applying Updates
+================================================================================
+DAILY USAGE
+================================================================================
 
-Once the bootstrap is complete, you do not need to build the activation package manually. Apply changes using `home-manager`:
+After first setup, apply changes with:
 
-Bash
-
-```
-# Navigate to repo
 cd ~/src/nix
+home-manager switch --flake .#<username>
 
-# Switch to the new configuration
-home-manager switch --flake .#<your-username>
-```
+Or use the alias:
 
----
+hmswitch
 
-## Directory Structure
+================================================================================
+POST-INSTALL: TAILSCALE
+================================================================================
 
-- `flake.nix`: Entry point and dependencies.
-    
-- `home.nix`: Main user configuration.
-    
+Tailscale needs system-level setup (one time per machine).
 
+## macOS
 
-***
+brew install --cask tailscale
+tailscale up
 
-### Strategic Notes & Fixes
+## Linux
 
-1.  **Safety Check (The `mv` command):** Your original command `mv ~/.bashrc ~./backupbashrc` contained a syntax error (`~./`). I changed this to standard backup naming (`.backup`) and added a check `[ -f ... ]` so the command doesn't fail if the file doesn't exist.
-2.  **The "Bootstrap" Distinction:** I separated the `nix build ... activationPackage` step from the `home-manager switch` step.
-    * **Why:** `nix build` is usually only needed the very first time (bootstrapping) to install the `home-manager` binary itself. Once installed, `home-manager switch` is the faster, standard way to work.
-3.  **Placeholders:** I replaced `"your.name"` and `#{home.username}` with `<your-username>` to make it clear where the user needs to input their specific variable.
+See: <https://tailscale.com/download/linux>
+Then run: tailscale up
 
-**Next Step:** Would you like me to write a script to automate that "Backup and Check" step so you don't have to run those commands manually every time you provision a new machine?
+================================================================================
+ADDING PACKAGES
+================================================================================
+
+1. Edit shell.nix
+2. Add package to home.packages list
+3. Run: hmswitch
+
+Search packages: <https://search.nixos.org/packages>
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+## Error: "file exists"
+
+You didn't backup dotfiles. Move them manually:
+mv ~/.bashrc ~/.bashrc.backup (repeat for .profile, .zshrc)
+
+## Error: "experimental features not enabled"
+
+Add to ~/.config/nix/nix.conf:
+experimental-features = nix-command flakes
+Then restart terminal.
+
+## Changes not applying
+
+Make sure you're in ~/src/nix when running home-manager switch
+
+================================================================================
+DIRECTORY STRUCTURE
+================================================================================
+
+flake.nix Entry point, system configs
+shell.nix Base packages and environment
+profiles/ User-specific settings
+└─ benjamincurrie.nix
+appConfigs/ Application configs
+├─ nvim.nix Neovim (LazyVim)
+└─ starship.nix Shell prompt theme
+
