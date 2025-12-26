@@ -9,6 +9,7 @@
       nixfmt-rfc-style # Formatter for Nix code
       github-cli       # GitHub command-line interface
       gemini-cli       # Gemini command-line interface
+      lazydocker
     ];
 
     # Shell & Terminal
