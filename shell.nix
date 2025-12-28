@@ -34,6 +34,7 @@
     fun = [
       cmatrix          # Matrix-style text scrolling
       cowsay           # ASCII cow with a message
+      sl
     ];
 
   in
