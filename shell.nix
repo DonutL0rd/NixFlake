@@ -10,6 +10,9 @@
       github-cli       # GitHub command-line interface
       gemini-cli       # Gemini command-line interface
       lazydocker
+      talosctl
+      argocd
+      kubectl
     ];
 
     # Shell & Terminal
