@@ -12,11 +12,17 @@
     # Your existing Home Manager configs
     homeConfigurations = {
       "benjamincurrie" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
         modules = [ ./shell.nix ./profiles/benjamincurrie.nix ];
       };
       "nrm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
         modules = [ ./shell.nix ./profiles/nrm.nix ];
       };
     };

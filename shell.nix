@@ -13,6 +13,8 @@
       talosctl
       argocd
       kubectl
+      k9s
+      github-copilot-cli
     ];
 
     # Shell & Terminal
