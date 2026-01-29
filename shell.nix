@@ -15,6 +15,7 @@
       kubectl
       k9s
       github-copilot-cli
+      claude-code
     ];
 
     # Shell & Terminal
