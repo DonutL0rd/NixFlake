@@ -2,6 +2,7 @@
   imports = [
     ./appConfigs/nvim.nix
     ./appConfigs/starship.nix
+    ./appConfigs/zellij.nix
   ];
   home.packages = with pkgs; let
     # Development Tools
@@ -21,7 +22,6 @@
     # Shell & Terminal
     shellAndTerminal = [
       starship         # Cross-shell prompt
-      zellij           # Terminal multiplexer
       yazi             # Terminal file manager
       eza              # Modern replacement for ls
       bat              # Cat clone with syntax highlighting
