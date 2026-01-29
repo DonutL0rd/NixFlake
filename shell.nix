@@ -3,6 +3,7 @@
     ./appConfigs/nvim.nix
     ./appConfigs/starship.nix
     ./appConfigs/zellij.nix
+    ./appConfigs/ghostty.nix
   ];
   home.packages = with pkgs; let
     # Development Tools
@@ -25,6 +26,7 @@
       yazi             # Terminal file manager
       eza              # Modern replacement for ls
       bat              # Cat clone with syntax highlighting
+      glow             # Terminal markdown renderer
     ];
 
     # System & Network Monitoring
