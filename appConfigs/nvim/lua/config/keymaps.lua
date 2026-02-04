@@ -41,3 +41,8 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- Buffer navigation
+map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Buffer picker" })
+map("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete current buffer" })
+map("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Delete other buffers" })

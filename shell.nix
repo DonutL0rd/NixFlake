@@ -8,7 +8,7 @@
   home.packages = with pkgs; let
     # Development Tools
     developmentTools = [
-      nixfmt-rfc-style # Formatter for Nix code
+      nixfmt           # Formatter for Nix code
       github-cli       # GitHub command-line interface
       gemini-cli       # Gemini command-line interface
       lazydocker

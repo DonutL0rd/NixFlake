@@ -9,7 +9,7 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initExtra = ''
+        initContent = ''
           clear
           neofetch 
 

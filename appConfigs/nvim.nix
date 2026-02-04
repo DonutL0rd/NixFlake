@@ -50,7 +50,7 @@
       # marksman
 
       # Docker
-      nodePackages.dockerfile-language-server-nodejs
+      dockerfile-language-server
     ];
   };
 
