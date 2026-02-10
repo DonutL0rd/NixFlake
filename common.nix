@@ -5,6 +5,13 @@
     ./appConfigs/zellij.nix
     ./appConfigs/ghostty.nix
   ];
+
+  # Shared aliases across all profiles
+  home.shellAliases = {
+    cat = "bat -pp";
+    ls = "eza --icons -F -H --group-directories-first --git -1";
+  };
+
   home.packages = with pkgs; let
     # Development Tools
     developmentTools = [
@@ -16,13 +23,11 @@
       argocd
       kubectl
       k9s
-      github-copilot-cli
       claude-code
     ];
 
     # Shell & Terminal
     shellAndTerminal = [
-      starship         # Cross-shell prompt
       yazi             # Terminal file manager
       eza              # Modern replacement for ls
       bat              # Cat clone with syntax highlighting
@@ -33,7 +38,7 @@
     monitoring = [
       btop             # Resource monitor
       gping            # Ping with a graph
-      neofetch         # System information tool
+      fastfetch        # System information tool
       tailscale        # VPN service
       speedtest-cli    # Internet speed tester
     ];

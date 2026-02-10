@@ -1,6 +1,4 @@
-vim.g.mapleader = " "
--- vim.g.maplocalleader = "\\" -- Removed to avoid conflicts/errors, standard default is fine.
-
+-- Custom options (LazyVim defaults are inherited automatically)
 local opt = vim.opt
 
 opt.showtabline = 0 -- Never show tabs

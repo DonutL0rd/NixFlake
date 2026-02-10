@@ -6,7 +6,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "tokyonight",
+        colorscheme = "kanagawa-dragon",
       },
     },
     
@@ -26,7 +26,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "kanagawa-dragon", "tokyonight" } },
   checker = { enabled = true },
   performance = {
     rtp = {

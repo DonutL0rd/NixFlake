@@ -66,7 +66,7 @@
     cursor-style-blink = false
     
     # --- 6. Shell Integration ---
-    shell-integration = zsh
+    shell-integration = detect
     # Enables fancy features like "sudo" detection and cursor placement
     shell-integration-features = no-cursor,sudo,title
     
@@ -76,7 +76,7 @@
     
     # --- 8. Copy/Paste ---
     # Linux-style: Copy immediately when selecting text (Optional, default false)
-      copy-on-select = true
+    copy-on-select = true
     
     # --- 9. Keybinds (Productivity) ---
     # Reload config instantly

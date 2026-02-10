@@ -9,7 +9,7 @@
 
     # Essential tooling
     tree-sitter
-    nodejs_20
+    nodejs_22
     cargo
     go
     python3
@@ -30,7 +30,6 @@
       # Nix
       nil
       nixd
-      alejandra
 
       # Lua
       lua-language-server
@@ -59,7 +58,6 @@
     "nvim/lua/config/lazy.lua".source = ./nvim/lua/config/lazy.lua;
     "nvim/lua/config/options.lua".source = ./nvim/lua/config/options.lua;
     "nvim/lua/config/keymaps.lua".source = ./nvim/lua/config/keymaps.lua;
-    "nvim/lua/config/autocmds.lua".source = ./nvim/lua/config/autocmds.lua;
     "nvim/lua/plugins/custom.lua".source = ./nvim/lua/plugins/custom.lua;
   };
 }
