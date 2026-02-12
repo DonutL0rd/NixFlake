@@ -1,9 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # LazyVim core dependencies
-    ripgrep
-    fd
-    lazygit
     gcc
     gnumake
 
@@ -15,7 +13,6 @@
     python3
 
     # Shell/terminal
-    fzf
     delta
   ];
 
