@@ -12,13 +12,6 @@
     initContent = ''
       clear
       fastfetch
-
-      # Screensaver (5 minutes idle)
-      # Only triggers when at the prompt, not while running commands.
-      TMOUT=300
-      TRAPALRM() {
-        cmatrix -s -b
-      }
     '';
     shellAliases = {
       z = "zellij attach main";

@@ -17,6 +17,8 @@
     cat = "bat -pp";
     ls = "eza --icons -F -H --group-directories-first --git -1";
     lg = "lazygit";
+    vi = "nvim";
+    vim = "nvim";
   };
 
   home.packages =
@@ -29,7 +31,6 @@
         gemini-cli # Gemini command-line interface
         lazydocker
         talosctl
-        argocd
         kubectl
         k9s
         claude-code

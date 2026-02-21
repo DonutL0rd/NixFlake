@@ -54,7 +54,6 @@ The configuration is split across several logical files:
 - **Prompt Character**: `☕ ❯`
 
 ### Zsh (Shell)
-- **Screensaver**: Auto-triggers `cmatrix -s -b` after 5 minutes of inactivity at the prompt.
 - **Aliases**:
     - `hmswitch`: Applies the Home Manager configuration (`git add . && home-manager switch ...`).
     - `dashboard`: Launches the Zellij dashboard layout.
