@@ -34,6 +34,8 @@
         kubectl
         k9s
         claude-code
+        opencode
+        supabase-cli
       ];
 
       # Shell & Terminal
@@ -57,7 +59,7 @@
       fun = [
         cmatrix # Matrix-style text scrolling
         cowsay # ASCII cow with a message
-        sl
+        sl # TRAIN LOL 
       ];
 
       # Modern Unix Tools

@@ -17,13 +17,15 @@ The configuration is split across several logical files:
 - **`flake.nix`**: The entry point.
     - `benjamincurrie`: Configuration for `aarch64-darwin` (Apple Silicon).
     - `nrm`: Configuration for `x86_64-linux`.
-- **`shell.nix`**: Defines the base packages.
-    - **Development**: `nixfmt`, `gh`, `gemini-cli`, `k9s`, `lazydocker`.
+- **`common.nix`**: Defines the base packages and shared configuration (formerly `shell.nix`).
+    - **Development**: `nixfmt`, `gh`, `gemini-cli`, `claude-code`, `opencode`, `k9s`, `lazydocker`, `talosctl`, `kubectl`.
     - **Terminal**: `starship`, `zellij`, `yazi`, `eza`, `bat`, `glow`.
-    - **Monitoring**: `btop`, `gping`, `neofetch`, `tailscale`.
+    - **Monitoring**: `btop`, `gping`, `fastfetch` (replaced `neofetch`), `tailscale`, `speedtest-cli`.
+    - **Modern Unix**: `lazygit`, `ripgrep`, `fd`, `jq`.
     - **Fun**: `cmatrix`, `cowsay`, `sl`.
 - **`profiles/`**: User-specific logic.
-    - `benjamincurrie.nix`: Zsh configuration, aliases, and screensaver logic.
+    - `benjamincurrie.nix`: Zsh configuration, aliases (`z`, `y`, `hmswitch`), and environment setup.
+    - `nrm.nix`: Bash configuration for Linux environment.
 - **`appConfigs/`**: Application-specific modules.
     - `ghostty.nix`: Terminal emulator configuration (Custom Theme, Shaders).
     - `zellij.nix`: Multiplexer configuration (Dashboard layout, Theme).
@@ -53,13 +55,24 @@ The configuration is split across several logical files:
     - **Right**: Kubernetes -> Docker -> Language Versions -> Time.
 - **Prompt Character**: `☕ ❯`
 
-### Zsh (Shell)
+### Neovim (LazyVim)
+- **Config**: Hybrid approach. Nix installs the package and tools (`nil`, `lua-language-server`, `shfmt`, etc.), but config files are sourced from `./appConfigs/nvim/` to `~/.config/nvim/`.
+- **Languages**: Lua, Nix, Shell, YAML, JSON, Docker.
+
+### Shell (Zsh/Bash)
 - **Aliases**:
     - `hmswitch`: Applies the Home Manager configuration (`git add . && home-manager switch ...`).
     - `dashboard`: Launches the Zellij dashboard layout.
     - `cat` -> `bat`, `ls` -> `eza`, `y` -> `yazi`.
+    - `vi`/`vim` -> `nvim`.
 
 ## Workflows
+
+### Bootstrapping
+A helper script `install.sh` is provided to bootstrap the environment on a new machine:
+1. Checks for Nix and Flakes.
+2. Backs up existing dotfiles (`.zshrc`, `.bashrc`, etc.).
+3. Builds and activates the Home Manager configuration for the detected OS/User.
 
 ### Applying Changes
 To apply any changes made to `.nix` files:
@@ -74,8 +87,13 @@ Since `ghostty` is marked as broken on `aarch64-darwin` in `nixpkgs` (as of earl
 - **Configuration**: Fully managed by Nix (`appConfigs/ghostty.nix` generates `~/.config/ghostty/config`).
 
 ## Development History & Status
+- **Mar 1, 2026**:
+    - Added `opencode` (AI coding agent) to development tools in `common.nix`.
+- **Feb 23, 2026**:
+    - Confirmed `shell.nix` has been renamed/refactored to `common.nix`.
+    - Added `claude-code`, `talosctl`, `kubectl` to development tools.
+    - Switched from `neofetch` to `fastfetch`.
+    - Documented `install.sh` bootstrapping process.
 - **Jan 28, 2026**:
-    - Attempted migration to `nix-darwin` but reverted to stable Home Manager due to bootstrapping complexity.
-    - Added `ghostty` configuration with custom shaders and themes.
-    - Added `glow` (Markdown reader) to `shell.nix`.
-    - Removed experimental `wtf` AI function from Zsh profile.
+    - Attempted migration to `nix-darwin` but reverted to stable Home Manager.
+    - Added `ghostty` configuration.
